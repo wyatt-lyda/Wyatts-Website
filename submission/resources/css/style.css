@@ -1,0 +1,279 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.icon i {
+    font-size: 24px;
+    color: white;
+}
+/* Resume section */
+.resume {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centers all text */
+}
+
+/* Remove list styling and ensure proper alignment */
+ul {
+    list-style: none;
+    padding-left: 0; /* Removes extra space from default list indentation */
+    margin: 0; /* Ensures no unexpected spacing */
+}
+
+/* Individual list items */
+ul li {
+    margin-bottom: 8px;
+    text-align: center; /* Ensures text inside lists is centered */
+}
+/* Intro Section (Image + Description) */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers items horizontally */
+    gap: 20px; /* Adds spacing between image and text */
+    padding: 50px 20px;
+}
+
+.intro img {
+    width: 100%;  /* Makes it responsive */
+    max-width: 400px; /* Adjust as needed */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Slight rounding for smooth edges, remove if not needed */
+    display: block; /* Prevents extra spacing issues */
+    margin: auto; /* Centers the image */
+}
+
+.description {
+    max-width: 600px;
+    text-align: center; /* Centers text */
+}
+
+.description h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.description p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Hobbies Section */
+.hobbies {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Hobby Cards Grid */
+.hobby-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    justify-content: center; /* Centers the grid itself */
+    align-items: start;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Force last card to center if it's the only one in the last row */
+.hobby-cards .card:nth-child(3):last-child {
+    grid-column: span 2; /* Makes the last card span 2 columns */
+    justify-self: center; /* Ensures it's centered */
+}
+
+
+/* Individual Cards */
+.card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Enlarged Hobby Images */
+.card img {
+    width: 100%; /* Makes images fill the card width */
+    max-width: 400px; /* Prevents them from being too large */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Smooth edges */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hobby-cards {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+}
+
+/* Projects Section */
+.projects {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    max-width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Inner Wrapper */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Each Carousel Item */
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+/* Project Images */
+.carousel-item img {
+    width: 100%; /* Ensures images fit within the container */
+    max-height: 70vh; /* Limits height to fit within the viewport */
+    object-fit: contain; /* Ensures full image is visible without cropping */
+    border-radius: 8px;
+}
+
+/* Project Info Overlay */
+.project-info {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+}
+
+/* Carousel Navigation Buttons */
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 32px; /* Makes buttons larger */
+    padding: 15px 25px; /* Increases clickable area */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* Hover Effect */
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel-item img {
+        max-height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    .project-info {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    button.prev,
+    button.next {
+        font-size: 24px;
+        padding: 10px 15px;
+    }
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+/* LinkedIn Icon */
+footer a .fa-linkedin {
+    color: #0a66c2; /* LinkedIn blue */
+}
+
+footer a:hover .fa-linkedin {
+    color: #004182; /* Darker blue on hover */
+}
+
+/* GitHub Icon */
+footer a .fa-github {
+    color: #fff; /* White GitHub icon */
+}
+
+footer a:hover .fa-github {
+    color: #c9d1d9; /* Lighter gray on hover */
+}
+footer a {
+    color: #1da1f2;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #004471; /* Darker blue on hover */
+}
